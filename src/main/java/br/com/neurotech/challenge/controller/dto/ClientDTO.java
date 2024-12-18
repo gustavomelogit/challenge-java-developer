@@ -3,6 +3,8 @@ package br.com.neurotech.challenge.controller.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Setter
 @Getter
 @Builder
@@ -10,7 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @Schema(description = "Represents the client")
 public class ClientDTO {
-    
+
     @Schema(description = "The name of the client", example = "Bob")
     private String name;
 
@@ -18,6 +20,6 @@ public class ClientDTO {
     private Integer age;
 
     @Schema(description = "The income of the client in monetary value", example = "10000.00")
-    private Double income;
+    private BigDecimal income;
 
 }

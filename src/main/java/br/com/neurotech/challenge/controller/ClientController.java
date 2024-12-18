@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Objects;
+
 @RestController
 @RequestMapping("/client")
 @RequiredArgsConstructor
@@ -37,7 +39,7 @@ public class ClientController {
 
         var clientId = clientService.save(ClientMapper.INSTANCE.dtoToEntity(clientDTO));
 
-        var location = String.join("/", apiConfig.getApiBaseUrl(), clientId);
+        var location = apiConfig.getApiBaseUrl().concat(Objects.toString(clientId));
 
         return ResponseEntity.ok()
                 .header("Location", location)
@@ -57,7 +59,7 @@ public class ClientController {
     )
     public ResponseEntity<ClientDTO> getClient(
             @Parameter(description = "The unique identifier of the client", required = true)
-            @PathVariable String id) {
+            @PathVariable Long id) {
         var client = clientService.get(id);
         return ResponseEntity.ok(ClientMapper.INSTANCE.entityToDto(client));
     }

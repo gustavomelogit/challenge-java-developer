@@ -1,27 +1,37 @@
 app:
   version: 1.0.0
 
-spring:
-  application:
-    name: challenge-java-developer
-
 server:
   port: 5000
   servlet:
     contextPath: /api
 
-  data:
-    mongodb:
-      uri: mongodb://mongo:mongo@localhost:27017/challenge
-      database: challenge
+spring:
+  application:
+    name: challenge-java-developer
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/docker
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        jdbc.time_zone: UTC
+      show-sql: false
+      format-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
 api:
   client:
     base:
-      url: 'http://localhost/api/client/'
+      url: http://localhost:5000/api/client/
 
 
 springdoc:
   api-docs:
     path: /v3/api-docs
   swagger-ui:
-    path: /swagger-ui.html
+    path: /openapi

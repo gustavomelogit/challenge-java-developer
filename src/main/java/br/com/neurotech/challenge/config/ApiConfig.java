@@ -11,5 +11,7 @@ public class ApiConfig {
     @Value("${api.client.base.url}")
     private String apiBaseUrl;
 
+    @Value("${app.version}")
+    String applicationVersion;
 
 }

@@ -12,11 +12,11 @@ public interface ClientService {
 	 * 
 	 * @return ID do cliente recém-salvo
 	 */
-	String save(NeurotechClient client);
+	Long save(NeurotechClient client);
 	
 	/**
 	 * Recupera um cliente baseado no seu ID
 	 */
-	NeurotechClient get(String id);
+	NeurotechClient get(Long id);
 
 }

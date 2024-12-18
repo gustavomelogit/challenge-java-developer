@@ -1,23 +1,35 @@
 package br.com.neurotech.challenge.model.entity;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.math.BigDecimal;
+
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "tb_neurotech_client")
+@Entity
+@Table(name = "tb_neurotech_client")
 public class NeurotechClient {
 
-	@Id
-	private String id;
-	private String name;
-	private Integer age;
-	private Double income;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "age", nullable = false)
+    private Integer age;
+
+    @Column(name = "income", nullable = false)
+    private BigDecimal income;
+
+    @Version
+    private Integer version;
 }

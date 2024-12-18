@@ -22,7 +22,7 @@ public class ClientServiceImpl implements ClientService {
      * @return a string representing the identifier of the saved client
      */
     @Override
-    public String save(NeurotechClient client) {
+    public Long save(NeurotechClient client) {
         log.info("Saving client with data: <{}>", client);
 
         var savedClient = clientRepository.save(client);
@@ -39,7 +39,7 @@ public class ClientServiceImpl implements ClientService {
      * @return the {@link NeurotechClient} object corresponding to the given ID
      */
     @Override
-    public NeurotechClient get(String id) {
+    public NeurotechClient get(Long id) {
         log.info("Finding client with id: <{}>", id);
 
         var foundClient = clientRepository.findById(id);
