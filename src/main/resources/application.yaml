@@ -1,6 +1,27 @@
+app:
+  version: 1.0.0
+
 spring:
   application:
     name: challenge-java-developer
 
 server:
   port: 5000
+  servlet:
+    contextPath: /api
+
+  data:
+    mongodb:
+      uri: mongodb://mongo:mongo@localhost:27017/challenge
+      database: challenge
+api:
+  client:
+    base:
+      url: 'http://localhost/api/client/'
+
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

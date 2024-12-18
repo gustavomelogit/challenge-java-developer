@@ -1,8 +1,8 @@
-package br.com.neurotech.challenge.service;
+package br.com.neurotech.challenge.model.service;
 
 import org.springframework.stereotype.Service;
 
-import br.com.neurotech.challenge.entity.NeurotechClient;
+import br.com.neurotech.challenge.model.entity.NeurotechClient;
 
 @Service
 public interface ClientService {

@@ -1,8 +1,8 @@
-package br.com.neurotech.challenge.service;
+package br.com.neurotech.challenge.model.service;
 
 import org.springframework.stereotype.Service;
 
-import br.com.neurotech.challenge.entity.VehicleModel;
+import br.com.neurotech.challenge.model.entity.VehicleModel;
 
 @Service
 public interface CreditService {
