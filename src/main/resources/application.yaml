@@ -24,12 +24,6 @@ spring:
       format-sql: false
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
-api:
-  client:
-    base:
-      url: http://localhost:5000/api/client/
-
-
 springdoc:
   api-docs:
     path: /v3/api-docs

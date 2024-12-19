@@ -1,7 +1,6 @@
 package br.com.neurotech.challenge.controller;
 
 
-import br.com.neurotech.challenge.config.ApiConfig;
 import br.com.neurotech.challenge.controller.annotation.DefaultApiDocumentation;
 import br.com.neurotech.challenge.controller.dto.ClientDTO;
 import br.com.neurotech.challenge.controller.mapper.ClientMapper;
@@ -11,17 +10,16 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Objects;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping("/client")
 @RequiredArgsConstructor
-@Tag(name = "Neurotech Client", description = "Endpoints for managing neurotech client")
+@Tag(name = "Client", description = "Endpoints for managing neurotech client")
 public class ClientController {
 
     private final ClientService clientService;
-    private final ApiConfig apiConfig;
+    //private final ApiConfig apiConfig;
 
     /**
      * Registers a new client.
@@ -39,7 +37,10 @@ public class ClientController {
 
         var clientId = clientService.save(ClientMapper.INSTANCE.dtoToEntity(clientDTO));
 
-        var location = apiConfig.getApiBaseUrl().concat(Objects.toString(clientId));
+        var location = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(clientId)
+                .toUriString();
 
         return ResponseEntity.ok()
                 .header("Location", location)

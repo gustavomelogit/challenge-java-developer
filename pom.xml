@@ -31,7 +31,7 @@
 
     <properties>
         <java.version>21</java.version>
-        <org.springdoc.version>2.0.2</org.springdoc.version>
+        <org.springdoc.version>2.6.0</org.springdoc.version>
         <org.mapstruct.version>1.6.3</org.mapstruct.version>
         <org.instancio>5.2.1</org.instancio>
         <org.project.lombok.version>1.18.36</org.project.lombok.version>
@@ -120,13 +120,12 @@
                 <version>${org.jacoco.version}</version>
                 <configuration>
                     <excludes>
-                        <exclude>br/com/neurotech/challenge/config/**</exclude>
-                        <exclude>br/com/neurotech/challenge/controller/**</exclude>
-                        <exclude>br/com/neurotech/challenge/model/entity/**</exclude>
-                        <exclude>br/com/neurotech/challenge/model/exceptions/**</exclude>
-                        <exclude>br/com/neurotech/challenge/model/mapper/**</exclude>
-                        <exclude>br/com/neurotech/challenge/model/repository/**</exclude>
-                        <exclude>br/com/neurotech/challenge/ChallengeJavaDeveloperApplication.class</exclude>
+                        <exclude>**/config/**</exclude>
+                        <exclude>**/exceptions/**</exclude>
+                        <exclude>**/mapper/**</exclude>
+                        <exclude>**/repository/**</exclude>
+                        <exclude>**/challenge/model/entity/NeurotechClient.class</exclude>
+                        <exclude>**/challenge/ChallengeJavaDeveloperApplication.class</exclude>
                     </excludes>
                 </configuration>
                 <executions>

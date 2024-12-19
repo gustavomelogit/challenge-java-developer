@@ -1,8 +1,10 @@
 package br.com.neurotech.challenge.controller.handler;
 
+import br.com.neurotech.challenge.model.exceptions.ClientNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageConversionException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -12,12 +14,15 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ExceptionHandler({
+            MethodArgumentNotValidException.class,
+            ClientNotFoundException.class,
+            HttpMessageConversionException.class
+    })
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<String> handleValidationException(Exception ex) {
-        var errorMessage = "Invalid input or missing parameters. " + ex.getMessage();
         log.error(ex.getMessage(), ex);
-        return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)

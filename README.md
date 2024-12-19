@@ -1,3 +1,84 @@
+# Microservice Personal Credit
+
+## Description
+
+Microservice for registering and consulting clients, checking eligible and applying credit modalities for individuals according to specific criteria.
+
+---
+
+## Technology Stack
+
+The project leverages the following technologies:
+
+- **Java 21**
+- **Spring Boot 3**
+- **PostgresDB**
+- **Flyway**
+- **Docker**
+- **Jacoco**
+
+---
+
+## Swagger Documentation
+
+The API documentation for this microservice is available at the following path:
+
+- Swagger UI: /openapi
+
+This provides an interactive interface for exploring and testing the API endpoints.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Docker installed on your machine.
+
+### Running the Application
+
+1. **Start Dependencies with Docker**  
+   Navigate to the `/helper/docker` directory and run:
+   ```
+   docker-compose up
+   ```
+
+2. **Start the Application**
+
+   Run the following command to start the Spring Boot application:
+   ```shell
+   ./mvnw spring-boot:run
+   ```
+
+## Build and Test
+
+### Build the Application
+
+```shell
+  ./mvnw clean install
+```
+
+## Run Unit Tests
+
+```shell
+  ./mvnw test
+```
+
+## Generate Test Coverage Report
+
+```shell
+  ./mvnw clean verify
+```
+
+## View Test Coverage
+
+After running, you can find the test coverage report in the target/site/jacoco/index.html file.
+Open this file in a browser to view the detailed test coverage metrics.
+
+--- 
+
+---
+
 # Avaliação para admissão de Desenvolvedores para a Neurotech
 
 ## Instruções
